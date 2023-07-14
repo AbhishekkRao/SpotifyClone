@@ -2,6 +2,8 @@
 
 Spotify Clone App is a web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It replicates the core functionalities of Spotify, allowing users to create an account, browse and search for songs, upload Songs, create playlists, and enjoy music playback.
 
+https://github.com/AbhishekkRao/SpotifyClone/assets/77543486/25d5cb27-6617-4dac-8854-e0123598097b
+
 ## Installation
 
 1. Clone the repository:
