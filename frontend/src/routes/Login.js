@@ -23,10 +23,10 @@ const LoginComponent = () => {
             const date = new Date();
             date.setDate(date.getDate() + 30);
             setCookie("token", token, { path: "/", expires: date });
-            alert("Success");
+            alert("Logged in successfully");
             navigate("/home");
         } else {
-            alert("Failure");
+            alert("Incorrect credentials");
         }
     };
 

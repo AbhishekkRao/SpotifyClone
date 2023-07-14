@@ -38,7 +38,6 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
             return;
         }
         changeSong(currentSong.track);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentSong && currentSong.track]);
 
     const addSongToPlaylist = async (playlistId) => {
@@ -95,28 +94,27 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
         // date.setDate(date.getDate() - 10);
         // setCookie("token", { path: "/", expires: date });
         // Cookies.remove();
-        removeCookie("token");
-        localStorage.removeItem('token')
+        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        // removeCookie("token");
+        // localStorage.removeItem('token')
         // window.localStorage.clear();
-        navigate("/login");
+        window.location.reload(true);
     };
 
     const LogoutComp = ({ active }) => {
         return (
-            <a href="http://localhost:3000">
-                <div className="flex items-center justify-start cursor-pointer">
-                    <div
-                        className={`${active ? "text-white" : "text-gray-500"
-                            } font-semibold hover:text-white`}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            logout();
-                        }}
-                    >
-                        Logout
-                    </div>
+            <div className="flex items-center justify-start cursor-pointer">
+                <div
+                    className={`${active ? "text-white" : "text-gray-500"
+                        } font-semibold hover:text-white`}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        logout();
+                    }}
+                >
+                    Logout
                 </div>
-            </a>
+            </div>
         );
     };
 

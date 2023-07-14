@@ -113,7 +113,6 @@ const HomeComponent = () => {
                     </div>
                 </div>
             </div>
-            {/* This second div will be the right part(main content) */}
             <div className="h-full w-4/5 bg-app-black overflow-auto">
                 <div className="navbar w-full h-1/10 bg-black bg-opacity-30 flex items-center justify-end">
                     <div className="w-1/2 flex h-full">
@@ -124,14 +123,10 @@ const HomeComponent = () => {
                             <div className="h-1/2 border-r border-white"></div>
                         </div>
                         <div className="w-2/5 flex justify-around h-full items-center">
-                            <Link to="/signup">
-                                <TextWithHover displayText={"Sign up"} />
+                            <TextWithHover displayText={"Sign up"} targetLink={"/signup"} />
+                            <Link to="/login" className="bg-white h-2/3 px-8 flex items-center justify-center rounded-full font-semibold cursor-pointer">
+                                Log in
                             </Link>
-                            <div className="bg-white h-2/3 px-8 flex items-center justify-center rounded-full font-semibold cursor-pointer">
-                                <Link to="/login">
-                                    Log in
-                                </Link>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -160,7 +155,6 @@ const PlaylistView = ({ titleText, cardsData }) => {
             <div className="text-2xl font-semibold mb-5">{titleText}</div>
             <div className="w-full flex justify-between space-x-4">
                 {
-                    // cardsData will be an array
                     cardsData.map((item) => {
                         return (
                             <Card

@@ -22,51 +22,44 @@ function App() {
   return (
     <div className="w-screen h-screen font-poppins">
       <BrowserRouter>
-        {(cookie.token === undefined) ? (
-          <Route path="*" element={<Navigate to="/home" />} />) : (
-
-          {
-            cookie.token && cookie.token !== undefined ? (
-              // logged in routes
-              <songContext.Provider
-                value={{
-                  currentSong,
-                  setCurrentSong,
-                  soundPlayed,
-                  setSoundPlayed,
-                  isPaused,
-                  setIsPaused,
-                }}
-              >
-                <Routes>
-                  <Route
-                    path="/home"
-                    element={<LoggedInHomeComponent />}
-                  />
-                  <Route
-                    path="/uploadSong"
-                    element={<UploadSong />}
-                  />
-                  <Route path="/myMusic" element={<MyMusic />} />
-                  <Route path="/search" element={<SearchPage />} />
-                  <Route path="/library" element={<Library />} />
-                  <Route
-                    path="/playlist/:playlistId"
-                    element={<SinglePlaylistView />}
-                  />
-                  <Route path="*" element={<Navigate to="/home" />} />
-                </Routes>
-              </songContext.Provider>
-            ) : (
-              // logged out routes
-              <Routes>
-                <Route path="/home" element={<HomeComponent />} />
-                <Route path="/login" element={<LoginComponent />} />
-                <Route path="/signup" element={<SignupComponent />} />
-                <Route path="*" element={<Navigate to="/login" />} />
-              </Routes>
-            )
-          }
+        {cookie.token && cookie.token !== undefined ? (
+          <songContext.Provider
+            value={{
+              currentSong,
+              setCurrentSong,
+              soundPlayed,
+              setSoundPlayed,
+              isPaused,
+              setIsPaused,
+            }}
+          >
+            <Routes>
+              <Route
+                path="/home"
+                element={<LoggedInHomeComponent />}
+              />
+              <Route
+                path="/uploadSong"
+                element={<UploadSong />}
+              />
+              <Route path="/myMusic" element={<MyMusic />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/library" element={<Library />} />
+              <Route
+                path="/playlist/:playlistId"
+                element={<SinglePlaylistView />}
+              />
+              <Route path="*" element={<Navigate to="/home" />} />
+            </Routes>
+          </songContext.Provider>
+        ) : (
+          // logged out routes
+          <Routes>
+            <Route path="/home" element={<HomeComponent />} />
+            <Route path="/login" element={<LoginComponent />} />
+            <Route path="/signup" element={<SignupComponent />} />
+            <Route path="*" element={<Navigate to="/home" />} />
+          </Routes>
         )}
       </BrowserRouter>
     </div>
