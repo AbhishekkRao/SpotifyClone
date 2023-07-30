@@ -86,8 +86,7 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
             setIsPaused(true);
         }
     };
-
-    const [cookies, removeCookie, setCookie] = useCookies(["token"]);
+    const [cookie, setCookie] = useCookies(["token"]);
     const navigate = useNavigate();
     const logout = () => {
         // const date = new Date();
@@ -95,6 +94,7 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
         // setCookie("token", { path: "/", expires: date });
         // Cookies.remove();
         document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
         // removeCookie("token");
         // localStorage.removeItem('token')
         // window.localStorage.clear();
@@ -211,8 +211,8 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
                                 <TextWithHover displayText={"Upload Song"}
                                     targetLink={"/uploadSong"} />
                                 <LogoutComp />
-                                <div className="bg-white w-10 h-10 flex items-center justify-center rounded-full font-semibold cursor-pointer">
-                                    ARK
+                                <div className="bg-white px-4 py-2 flex items-center justify-center rounded-full font-semibold cursor-pointer">
+                                    {cookie.username[0].toUpperCase()}
                                 </div>
                             </div>
                         </div>
