@@ -47,6 +47,7 @@
   "devDependencies": {
     "@iconify/react": "^4.1.1",
     "autoprefixer": "^9.8.8",
+    "netlify-cli": "^15.9.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }
 }
