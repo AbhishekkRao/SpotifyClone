@@ -23,7 +23,7 @@ const LoginComponent = () => {
             const date = new Date();
             date.setDate(date.getDate() + 30);
             setCookie("token", token, { path: "/", expires: date });
-            setCookie("username", token, { path: "/", expires: date });
+            setCookie("username", response.username, { path: "/", expires: date });
             alert("Logged in successfully");
             navigate("/home");
         } else {

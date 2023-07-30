@@ -87,18 +87,19 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
         }
     };
     const [cookie, setCookie] = useCookies(["token"]);
+    const [cookies, setCookies] = useCookies(["username"]);
     const navigate = useNavigate();
     const logout = () => {
+        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        document.cookies = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        window.location.reload(true);
         // const date = new Date();
         // date.setDate(date.getDate() - 10);
         // setCookie("token", { path: "/", expires: date });
         // Cookies.remove();
-        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
         // removeCookie("token");
         // localStorage.removeItem('token')
         // window.localStorage.clear();
-        window.location.reload(true);
     };
 
     const LogoutComp = ({ active }) => {
