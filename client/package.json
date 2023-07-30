@@ -1,6 +1,7 @@
 {
   "name": "spotify_frontend",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@cloudinary/react": "^1.11.2",
