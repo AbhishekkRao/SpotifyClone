@@ -33,6 +33,7 @@ const SignupComponent = () => {
             const date = new Date();
             date.setDate(date.getDate() + 30);
             setCookie("token", token, { path: "/", expires: date });
+            setCookie("username", response.username, { path: "/", expires: date });
             alert("Success");
             navigate("/home");
         } else {
