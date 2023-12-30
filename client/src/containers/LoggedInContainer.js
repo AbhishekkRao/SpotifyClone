@@ -207,9 +207,11 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
                                 <TextWithHover displayText={"Download"} />
                                 <div className="h-1/2 border-r border-white"></div>
                             </div>
-                            <div className="w-1/2 flex justify-around h-full items-center">
+                            <div className={`w-1/2 flex justify-around h-full items-center`}>
                                 <TextWithHover displayText={"Upload Song"}
-                                    targetLink={"/uploadSong"} />
+                                    targetLink={"/uploadSong"}
+                                    active={curActiveScreen === 'UploadSong' ? true : false}
+                                />
                                 <LogoutComp />
                                 <div className="bg-white px-4 py-2 flex items-center justify-center rounded-full font-semibold cursor-pointer">
                                     {cookie.username[0].toUpperCase()}
